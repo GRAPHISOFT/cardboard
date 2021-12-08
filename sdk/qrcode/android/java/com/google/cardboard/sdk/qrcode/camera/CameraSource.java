@@ -249,7 +249,7 @@ public class CameraSource {
     camera.addCallbackBuffer(createPreviewBuffer(previewSize));
     camera.addCallbackBuffer(createPreviewBuffer(previewSize));
 
-    Log.i(TAG, "Successfull camera creation.");
+    Log.i(TAG, "Successful camera creation.");
     return camera;
   }
 
@@ -498,9 +498,11 @@ public class CameraSource {
      */
     @SuppressLint("Assert")
     void release() {
-      assert (processingThread.getState() == State.TERMINATED);
-      detector.release();
-      detector = null;
+      assert (processingThread == null || processingThread.getState() == State.TERMINATED);
+      if (detector != null) {
+        detector.release();
+        detector = null;
+      }
     }
 
     /** Marks the runnable as active/not active. Signals any blocked threads to continue. */

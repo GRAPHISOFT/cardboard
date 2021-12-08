@@ -65,7 +65,7 @@ public class QrCodeContentProcessor {
     private final Context context;
 
     /**
-     * Contructs a ProcessAndSaveQrCodeTask.
+     * Constructs a ProcessAndSaveQrCodeTask.
      *
      * @param context The current Context. It is generally an Activity instance or wraps one, or an
      *     Application. It is used to write device params to scoped storage via

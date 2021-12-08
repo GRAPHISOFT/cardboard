@@ -78,7 +78,7 @@ public abstract class CardboardParamsUtils {
   private enum StorageSource {
     SCOPED_STORAGE,
     EXTERNAL_STORAGE
-  };
+  }
 
   /** Holds status for conversion from a URI to Cardboard device params. */
   public static class UriToParamsStatus {
@@ -381,7 +381,7 @@ public abstract class CardboardParamsUtils {
    * <p>Based on the API level, different behaviours are expected. When the API level is below
    * Android Q´s API level external storage is used. When the API level is exactly the same as
    * Android Q's API level, a migration from external storage to scoped storage is performed. When
-   * there are device parameters in both in external and scoped storage, scoped storage is prefered.
+   * there are device parameters in both in external and scoped storage, scoped storage is preferred.
    * When the API level is greater than Android Q's API level scoped storage is used.
    *
    * @param context The current Context. It is generally an Activity instance or wraps one, or an
