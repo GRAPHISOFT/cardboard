@@ -29,12 +29,14 @@ void LoadPngFile(const std::string& imageName, GLubyte** outImageData, GLuint* o
   GLuint width = static_cast<GLuint>(CGImageGetWidth(image.CGImage));
   GLuint height = static_cast<GLuint>(CGImageGetHeight(image.CGImage));
   GLubyte* imageData = new GLubyte[width * height * 4];
+  CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
   CGContextRef imageContext =
       CGBitmapContextCreate(imageData, image.size.width, image.size.height, 8, image.size.width * 4,
-                            CGColorSpaceCreateDeviceRGB(), kCGImageAlphaPremultipliedLast);
+							colorSpace, kCGImageAlphaPremultipliedLast);
   CGContextDrawImage(imageContext, CGRectMake(0.0, 0.0, image.size.width, image.size.height),
                      image.CGImage);
   CGContextRelease(imageContext);
+  CGColorSpaceRelease(colorSpace);
   *outImageData = imageData;
   *outWidth = image.size.width;
   *outHeight = image.size.height;

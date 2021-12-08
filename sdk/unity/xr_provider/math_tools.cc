@@ -67,7 +67,7 @@ static UnityXRVector4 CardboardTransformToUnityQuat(
   std::swap(transform[2], transform[8]);
   std::swap(transform[6], transform[9]);
 
-  UnityXRVector4 q;
+  UnityXRVector4 q {0, 0, 0, 0};
 
   float trace = transform[0] + transform[5] + transform[10];
   float root;

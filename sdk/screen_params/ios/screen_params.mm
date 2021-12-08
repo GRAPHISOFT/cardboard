@@ -169,7 +169,7 @@ CGFloat getDpi() {
   };
 
   NSNumber *dpi = dpis[model];
-  if (!dpi) {
+  if (dpi == nil) {
     return kDefaultDpi;
   }
 

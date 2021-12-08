@@ -110,9 +110,9 @@ bool LoadObjFile(const std::string& file_name,
       // Actual faces information starts from the second character.
       char* face_line = &line_header[1];
 
-      unsigned int vertex_index[4];
-      unsigned int normal_index[4];
-      unsigned int texture_index[4];
+	  unsigned int vertex_index[4] = {0, 0, 0, 0};
+	  unsigned int normal_index[4] = {0, 0, 0, 0};
+	  unsigned int texture_index[4] = {0, 0, 0, 0};
 
       std::vector<char*> per_vertex_info_list;
       char* per_vertex_info_list_c_str;
