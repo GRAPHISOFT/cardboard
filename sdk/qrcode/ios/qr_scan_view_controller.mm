@@ -376,7 +376,28 @@ static const CGFloat kGuidanceHeight = 116.0f;
   UIEdgeInsets insets = UIEdgeInsetsZero;
   // The guidance view is at the bottom of the screen.
   insets.top = 0;
+  insets.bottom = [CardboardQRScanViewController safeAreaBottomMargin];
   _guidanceInsetView.frame = UIEdgeInsetsInsetRect(_guidanceView.bounds, insets);
+}
+
++ (NSInteger) safeAreaBottomMargin {
+  UIWindow *window = UIApplication.sharedApplication.windows.firstObject;
+  return window.safeAreaLayoutGuide.owningView.frame.size.height - window.safeAreaLayoutGuide.layoutFrame.size.height - window.safeAreaLayoutGuide.layoutFrame.origin.y;
+}
+
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+  return UIInterfaceOrientationMaskLandscape;
+}
+
+-(BOOL)shouldAutorotate
+{
+  return NO;
+}
+
+-(UIModalPresentationStyle)modalPresentationStyle
+{
+  return UIModalPresentationFullScreen;
 }
 
 @end
