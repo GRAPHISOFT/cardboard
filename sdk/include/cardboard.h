@@ -452,13 +452,13 @@ CardboardUv CardboardLensDistortion_distortedUvForUndistortedUv(
 /// rendering API. Must be called from the render thread.
 ///
 /// @return         Distortion renderer object pointer
-CardboardDistortionRenderer* CardboardOpenGlEs2DistortionRenderer_create();
+CardboardDistortionRenderer* CardboardOpenGlEs2DistortionRenderer_create(void);
 
 /// Creates a new distortion renderer object. It uses OpenGL ES 3.0 as the
 /// rendering API. Must be called from the render thread.
 ///
 /// @return         Distortion renderer object pointer
-CardboardDistortionRenderer* CardboardOpenGlEs3DistortionRenderer_create();
+CardboardDistortionRenderer* CardboardOpenGlEs3DistortionRenderer_create(void);
 
 /// Creates a new distortion renderer object. It uses Metal as the rendering
 /// API. Must be called from the render thread.
@@ -570,7 +570,7 @@ void CardboardDistortionRenderer_renderEyeToDisplay(
 /// Creates a new head tracker object.
 ///
 /// @return         head tracker object pointer
-CardboardHeadTracker* CardboardHeadTracker_create();
+CardboardHeadTracker* CardboardHeadTracker_create(void);
 
 /// Destroys and releases memory used by the provided head tracker object.
 ///
@@ -702,12 +702,12 @@ void CardboardQrCode_saveDeviceParams(const uint8_t* uri, int size);
 /// @details Upon termination, it will increment a counter that can be queried
 ///          via @c ::CardboardQrCode_getDeviceParamsChangedCount when new
 ///          device parameters where successfully saved.
-void CardboardQrCode_scanQrCodeAndSaveDeviceParams();
+void CardboardQrCode_scanQrCodeAndSaveDeviceParams(void);
 
 /// Gets the count of successful device parameters read and save operations.
 ///
 /// @return The count of successful device parameters read and save operations.
-int CardboardQrCode_getDeviceParamsChangedCount();
+int CardboardQrCode_getDeviceParamsChangedCount(void);
 
 /// Gets Cardboard V1 device parameters.
 ///
